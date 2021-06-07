@@ -23,4 +23,8 @@ class Tweet extends Model
                     }
                 });
     }
+    public function likesCount()
+    {
+        return $this->hasMany(Like::class);
+    }
 }

@@ -16,7 +16,8 @@ class CreateLikesTable extends Migration
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('tweet_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('tweet_id')->constrained('tweets')->cascadeOnDelete();
+            $table->boolean('status')->default('0');
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     use HasFactory;
-    protected $fillable = ['tweet_id', 'user_id'];
+    protected $fillable = ['tweet_id', 'user_id', 'status'];
 
     public function user()
     {
