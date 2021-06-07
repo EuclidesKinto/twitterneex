@@ -58,4 +58,23 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function followers()
+    {
+        return $this->hasMany(Follow::class, 'followed_user_id');
+    }
+    
+    public function following()
+    {
+        return $this->hasMany(Follow::class, 'follower_id');
+    }
 }
