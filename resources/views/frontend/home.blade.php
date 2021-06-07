@@ -1,6 +1,6 @@
 <x-app-layout class="">
         <div class="grid grid-cols-1 md:grid-cols-12 mx-20" >
-            {{-- logo --}}            
+            {{-- logo --}}
             <div class="col-span-3 border-r ">
                 <x-jet-application-logo class="block h-16 w-auto" />
             </div>
@@ -16,6 +16,7 @@
             </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-12 mx-10">
+            {{-- left --}}
             <div class="col-span-3 ml-10">
                 <nav>
                     <ul>
@@ -26,7 +27,11 @@
                     </ul>
                 </nav>
             </div>
-            <div class="col-span-6 border-r ml-10"></div>
+            {{-- main --}}
+            <div class="col-span-6 border-r ml-10">
+                @livewire('feed-tweets')
+            </div>
+            {{-- rigth --}}
             <div class="col-span-3 border-r ml-10"></div>
         </div>
 </x-app-layout>
