@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class Follow extends Component
 {
+    public $listeners = ['replyRefresh' => 'render'];
     public User $user;
     public Follow $follow;
 
     public function render()
-    {       
+    {
         return view('livewire.follow');
     }
 
@@ -23,9 +24,11 @@ class Follow extends Component
             'followed_user_id' => Auth::user()->id,
             'follower_id' => $this->user->id,
         ]);
+        $this->emit('replyRefresh');
     }
     public function unfollow()
     {
         Auth::user()->followers()->delete();
+        $this->emit('replyRefresh');
     }
 }
