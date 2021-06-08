@@ -32,23 +32,19 @@
                 @livewire('feed-tweets')
             </div>
             {{-- rigth --}}
-            <div class="col-span-3 mx-5 rounded-lg my-5 bg-gray-100 hover:bg-gray-50">
-                <div class="my-2 text-center border-b ">
-                    <h1 class="mb-2 text-lg font-semibold text-gray-600 title-font">
-                        Seguir Usuários
-                    </h1>
-                </div>
-                <div class="flex flex-col mt-3 mx-3">
-                    <div class="flex flex-row">
-                        <span class="">
-                            <div>
-                                <div class="w-14 h-14 rounded-full bg-gray-800"></div>
-                                {{-- <img class="block h-6  rounded-full sm:mx-0 sm:flex-shrink-0" src="{{ Storage::disk('s3')->url('' . $course->producer->image) }}" alt="{{ $course->producer->name }}"> --}}
-                            </div>
-                        </span>
-                        <span >
-                            <p class="ml-3 text-base text-center text-gray-500 mb-1 hover:underline">SEGUIR</p>
-                        </span>
+            <div class="col-span-3 ">
+                <div class="mx-5 rounded-lg my-5 bg-gray-100 hover:bg-gray-50">
+                    <div class="my-2 text-center border-b ">
+                        <h1 class="mb-2 text-lg font-semibold text-gray-600 title-font">
+                            Seguir Usuários
+                        </h1>
+                    </div>
+                    <div class="flex flex-col mt-3 mx-3">
+                        @foreach ( $users as $user)
+                            @if(Auth::user()->id != $user->id)
+                                @livewire('follow', ['user' => $user])                        
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Follow extends Model
 {
     use HasFactory;
+    protected $fillable = ['followed_user_id', 'follower_id'];
+
+    public function followed()
+    {
+        return $this->belongsTo(User::class, 'followed_user_id');
+    }
+
+    public function follower()
+    {
+        return $this->belongsTo(User::class, 'follower_id');
+    }
 }
