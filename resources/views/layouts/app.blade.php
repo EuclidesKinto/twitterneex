@@ -22,7 +22,7 @@
         {{-- <x-jet-banner /> --}}
 
         <div class="min-h-scree">
-            @livewire('navigation-menu')
+            {{-- @livewire('navigation-menu') --}}
 
             <!-- Page Heading -->
             {{-- @if (isset($header))
@@ -34,7 +34,7 @@
             @endif --}}
 
             <!-- Page Content -->
-            <main>
+            <main class="mt-2">
                 {{ $slot }}
             </main>
         </div>

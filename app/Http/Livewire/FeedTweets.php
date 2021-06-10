@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FeedTweets extends Component
 {
-
+    public $tweet = '';
     public $user;
     protected $rules = [
         'tweet' => 'required|min:3|max:255'
@@ -19,7 +19,7 @@ class FeedTweets extends Component
     public function render()
     {
         ///$this->likes = Like::with('tw')->get();
-        $tweets = Tweet::latest()->with('likes')->get();
+        $tweets = Tweet::latest()->with(['likes', 'user.followers'])->get();
         //$tweets = Auth::user()->tweets()->latest()->with('likes')->get();
         //dd($tweets);
         //Auth::user()->load('comments.author');

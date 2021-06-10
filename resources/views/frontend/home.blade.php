@@ -1,11 +1,11 @@
 <x-app-layout class="">
-        <div class="grid grid-cols-1 md:grid-cols-12 mx-20" >
+        <div class="grid grid-cols-1 md:grid-cols-12 mx-16" >
             {{-- logo --}}
-            <div class="col-span-3 border-r ">
+            <div class="col-span-3 ml-5">
                 <x-jet-application-logo class="block h-16 w-auto" />
             </div>
             {{-- feed --}}
-            <div class="col-span-6  border-r  border-b ">
+            <div class="col-span-6  border-r border-l  border-b ">
                 <div class="text-lg text-black p-3 font-extrabold">Página Inicial</div>
             </div>
             {{-- sidebar-right --}}
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-12 mx-20">
+        <div class="grid grid-cols-1 md:grid-cols-12 mx-16">
             {{-- left --}}
             <div class="col-span-3">
                 <nav>
@@ -33,7 +33,7 @@
                             </span>
                             <span class="ml-4 font-bold text-2xl text-black hover:text-blue-400">Explorar</span>
                         </li>
-                        <li class="cursor-pointer flex flex-row py-3 px-5  bg-blue-500 rounded-full mr-5">
+                        <li class="cursor-pointer flex flex-row my-10 py-3 px-5  bg-blue-500 rounded-full mr-5">
                             <span class="mx-auto font-bold text-base  text-white ">Twett</span>
                         </li>
                         <li class="cursor-pointer flex flex-row mr-5">
@@ -124,6 +124,13 @@
                                 @livewire('follow', ['user' => $user])
                             @endif
                         @endforeach
+                    </div>
+                </div>
+                <div class="mx-5 rounded-lg my-5 bg-gray-100 hover:bg-gray-50">
+                    <div class="my-2 text-center border-b ">
+                        <h1 class="my-2 text-lg font-semibold text-gray-600 title-font">
+                            Seguindo {{ Auth::user()->followers->count() }}
+                        </h1>
                     </div>
                 </div>
             </div>

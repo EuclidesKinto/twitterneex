@@ -1,10 +1,8 @@
 <div class="flex flex-row justify-between my-3 bg-white rounded p-2">
-    
     <div class="flex flex-row">
         <span class="">
             <div>
                 <div class="w-10 h-10 rounded-full bg-gray-800"></div>
-                {{-- <img class="block h-6  rounded-full sm:mx-0 sm:flex-shrink-0" src="{{ Storage::disk('s3')->url('' . $course->producer->image) }}" alt="{{ $course->producer->name }}"> --}}
             </div>
         </span>
         <span>
@@ -15,13 +13,13 @@
     </div>
     <span>
         @if($user->following->count() == 0)
-            <p class="ml-3 py-1 px-4 bg-blue-500 text-xs text-center mt-2 text-white rounded mb-1 hover:underline" wire:click.prevent="followed()">
-                SEGUIR
-            </p>   
+            <p class="ml-3 py-1 px-4 border-blue-500 border-2 text-xs text-center mt-2 text-blue-500 rounded-full mb-1 hover:bg-blue-100 cursor-pointer" wire:click.prevent="followed()">
+                Seguir
+            </p>
         @else
-            <p class="ml-3 py-1 px-4 bg-blue-300 text-xs text-center mt-2 text-white rounded mb-1 hover:underline" wire:click.prevent="unfollow()">
-                Deixar de Seguir
+            <p class="ml-3 rounded-full py-1 px-4 bg-blue-500 text-xs text-center mt-2 text-white mb-1 hover:underline cursor-pointer font-bold" wire:click.prevent="unfollow()">
+                Seguindo
             </p>
         @endif
-    </span>           
+    </span>
 </div>
